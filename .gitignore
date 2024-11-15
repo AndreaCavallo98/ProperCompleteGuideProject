@@ -15,7 +15,7 @@ poetry.lock
 .secret        # File di configurazione sensibili
 
 # Alembic
-alembic/versions/*       # Include le migrazioni generate, se vuoi ignorarle
+app/alembic/versions/*       # Include le migrazioni generate, se vuoi ignorarle
 *.db                     # Database locale per test (come SQLite)
 
 # Docker

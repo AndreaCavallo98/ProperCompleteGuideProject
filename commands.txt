@@ -1,0 +1,27 @@
+# => Poetry
+curl -sSL https://install.python-poetry.org | python3.11 -
+export PATH="$HOME/.local/bin:$PATH"
+source ~/.zshrc
+poetry init
+poetry add firebase
+poetry add uvicorn
+
+# => Docker
+# Docker file created
+# Docker compose file created
+docker compose build
+docker compose up
+
+# => Alembic
+pip install poetry
+poetry add alembic
+pip install alembic
+alembic init alembic
+pip install sqlmodel
+
+
+
+# Postgres
+
+# Crud operation
+# Authentication & Deps
