@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython debug symbols
+cython_debug/
+
+# Poetry
+poetry.lock
+
+# FastAPI
+.env           # File per variabili d'ambiente
+.env.*         # Altri file env per vari sviluppi
+.secret        # File di configurazione sensibili
+
+# Alembic
+alembic/versions/*       # Include le migrazioni generate, se vuoi ignorarle
+*.db                     # Database locale per test (come SQLite)
+
+# Docker
+*.log                     # Log generati dai container
+docker-compose.override.yml # File override per configurazioni locali
+.dockerignore             # Docker ignore
+.Dockerfile               # Dockerfile
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# SQLModel (specifico a eventuali necessità locali, in generale coperto da altre sezioni)
+
+# Dependency directories
+venv/          # Ambiente virtuale Python, se non usi Poetry
+env/           # Un altro formato di ambiente virtuale
+.idea/         # Configurazioni di IDE (IntelliJ/PyCharm)
+
+# Jupyter Notebook (se usato per testing o esplorazione)
+.ipynb_checkpoints/
+
+# System
+.DS_Store      # MacOS
+Thumbs.db      # Windows
+*.swp          # Linux e file di swap di Vim
+
+# Test e coverage (se usati)
+htmlcov/
+.tox/
+.nox/
+*.cover
+*.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
