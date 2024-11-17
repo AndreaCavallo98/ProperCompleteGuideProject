@@ -12,6 +12,7 @@ uvicorn = "^0.32.0"
 alembic = "^1.14.0"
 sqlmodel = "^0.0.22"
 psycopg2-binary = "^2.9.9"
+asyncpg = "^0.30.0"
 
 
 [build-system]

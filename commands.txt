@@ -19,9 +19,15 @@ pip install alembic
 alembic init alembic
 pip install sqlmodel
 
+# => Postgres [Remember to switch to Async Postgres]
+# => Run migrations on docker
 
-
-# Postgres
 
 # Crud operation
+- perfection crud operation (settings file, crud file, create/update/delete/read with proper classes inheritance, validation etc etc)
 # Authentication & Deps
+# Routes
+# Complete fastapi api
+
+# Socket, Celery
+
