@@ -14,6 +14,7 @@ from app.security import decode_token
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], db: AsyncSession = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -38,4 +39,4 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], db: As
     user = await db.exec(select(User).where(User.id == id))
     if user is None:
         raise credentials_exception
-    return user
+    return user.unique().one()

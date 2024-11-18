@@ -28,15 +28,34 @@ class BaseUser(SQLModel):
 
 
 class User(BaseUUIDModel, BaseUser, table=True):
+    is_admin: bool = Field(default=False, sa_column=Column(server_default="false", nullable=False))
     hashed_password: str | None = Field(default=None, nullable=True, index=True)
-    addresses: list["Address"] = Relationship(back_populates="user")
+    addresses: list["Address"] = Relationship(back_populates="user", sa_relationship_kwargs={"lazy": "selectin"})
 
 
-class Address(BaseUUIDModel, table=True):
+class UpdateUser(SQLModel):
+    name: str | None = None
+    email: EmailStr | None = None
+    age: int | None = None
+
+
+class UserRead(BaseUser):
+    id: UUID
+    addresses: list["AddressRead"]
+
+
+class BaseAddress(SQLModel):
     name: str
     number: int
-    user_id: Optional[UUID] = Field(default=None, foreign_key="user.id")
-    user: Optional[User] = Relationship(back_populates="addresses")
+
+
+class Address(BaseUUIDModel,BaseAddress, table=True):
+    user_id: UUID | None = Field(default=None, foreign_key="user.id")
+    user: User | None = Relationship(back_populates="addresses", sa_relationship_kwargs={"lazy": "joined"})
+
+
+class AddressRead(BaseAddress):
+    id: UUID
 
 
 class Token(BaseModel):
