@@ -7,12 +7,16 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.115.5"
+fastapi = { extras = ["all"], version = "^0.115" }
 uvicorn = "^0.32.0"
 alembic = "^1.14.0"
 sqlmodel = "^0.0.22"
 psycopg2-binary = "^2.9.9"
 asyncpg = "^0.30.0"
+passlib = "^1.7.4"
+pydantic = "^2.9.2"
+email-validator = "^2.2.0"
+pyjwt = { extras = ["crypto"], version = "^2.8.0" }
 
 
 [build-system]
